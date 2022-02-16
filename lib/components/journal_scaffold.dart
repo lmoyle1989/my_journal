@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_journal/screens/settings_screen.dart';
 
 class JournalScaffold extends StatelessWidget {
   const JournalScaffold({
@@ -33,14 +34,7 @@ class JournalScaffold extends StatelessWidget {
           }),
         ],
       ),
-      endDrawer: SizedBox(
-        //ultimately want settings_screen here
-        height: 300,
-        width: 200,
-        child: Container(
-          color: Colors.red,
-        ),
-      ),
+      endDrawer: SettingsScreen(),
       floatingActionButton: actionButton,
       body: Container(
         child: LayoutBuilder(builder: (context, constraints) {

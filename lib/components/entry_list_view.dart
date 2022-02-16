@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/components/list_entry.dart';
 
-class ListViewScreen extends StatelessWidget {
-  ListViewScreen({
+class EntryListView extends StatelessWidget {
+  EntryListView({
     Key? key,
   }) : super(key: key);
 
