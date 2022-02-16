@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EntryDetailScreen extends StatelessWidget {
-  const EntryDetailScreen({Key? key}) : super(key: key);
+class EntryDetailView extends StatelessWidget {
+  const EntryDetailView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
