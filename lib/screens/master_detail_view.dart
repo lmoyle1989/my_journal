@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_journal/components/journal_scaffold.dart';
-import 'journal_list_screen.dart';
 import 'entry_detail_screen.dart';
+import 'list_view_screen.dart';
 
 class MasterDetailScreen extends StatelessWidget {
   const MasterDetailScreen({Key? key}) : super(key: key);
@@ -11,8 +10,8 @@ class MasterDetailScreen extends StatelessWidget {
     return Container(
         child: Row(
       children: [
-        Expanded(child: JournalListScreen()),
-        Expanded(child: EntryDetailScreen()),
+        Expanded(child: ListViewScreen()),
+        const Expanded(child: EntryDetailScreen()),
       ],
     ));
   }
