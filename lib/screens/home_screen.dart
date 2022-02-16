@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_journal/screens/list_view_screen.dart';
+import 'package:my_journal/components/entry_list_view.dart';
 import 'package:my_journal/components/journal_scaffold.dart';
-import 'master_detail_view.dart';
+import '../components/master_detail_view.dart';
 import 'new_entry_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,8 +14,8 @@ class HomeScreen extends StatelessWidget {
     return JournalScaffold(
       title: "List of Journal Entries",
       actionButton: newEntryButton(context),
-      body: ListViewScreen(),
-      horizontalBody: const MasterDetailScreen(),
+      body: EntryListView(),
+      horizontalBody: const MasterDetailView(),
     );
   }
 
