@@ -8,7 +8,10 @@ class JournalScaffold extends StatelessWidget {
     this.actionButton,
     required this.body,
     this.horizontalBody,
+    required this.toggleTheme,
   }) : super(key: key);
+
+  final void Function() toggleTheme;
 
   final String title;
   final Widget body;
@@ -34,7 +37,9 @@ class JournalScaffold extends StatelessWidget {
           }),
         ],
       ),
-      endDrawer: SettingsScreen(),
+      endDrawer: SettingsScreen(
+        toggleTheme: toggleTheme,
+      ),
       floatingActionButton: actionButton,
       body: Container(
         child: LayoutBuilder(builder: (context, constraints) {

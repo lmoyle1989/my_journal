@@ -3,16 +3,18 @@ import 'package:my_journal/components/journal_scaffold.dart';
 import 'package:my_journal/components/new_entry_form.dart';
 
 class NewEntryScreen extends StatelessWidget {
-  const NewEntryScreen({Key? key}) : super(key: key);
+  const NewEntryScreen({Key? key, required this.toggleTheme}) : super(key: key);
 
+  final void Function() toggleTheme;
   static const String routeName = 'new_entry_screen';
 
   @override
   Widget build(BuildContext context) {
-    return const JournalScaffold(
+    return JournalScaffold(
       title: "New Entry",
       actionButton: null,
       body: NewEntryForm(),
+      toggleTheme: toggleTheme,
     );
   }
 }

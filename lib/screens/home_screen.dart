@@ -5,8 +5,9 @@ import '../components/master_detail_view.dart';
 import 'new_entry_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key, required this.toggleTheme}) : super(key: key);
 
+  final void Function() toggleTheme;
   static const String routeName = '/';
 
   @override
@@ -16,6 +17,7 @@ class HomeScreen extends StatelessWidget {
       actionButton: newEntryButton(context),
       body: EntryListView(),
       horizontalBody: const MasterDetailView(),
+      toggleTheme: toggleTheme,
     );
   }
 

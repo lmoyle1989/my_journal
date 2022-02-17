@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:my_journal/app.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  SettingsScreen({Key? key, required this.toggleTheme}) : super(key: key);
+
+  final void Function() toggleTheme;
+  void Function() testToggle = () {};
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 100.0),
-      child: Placeholder(),
+    AppState? appState = context.findAncestorStateOfType<AppState>();
+    testToggle = () {
+      appState!.toggleTheme();
+    };
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(50.0),
+        child: ElevatedButton(
+          onPressed: testToggle,
+          child: Text("Test"),
+        ),
+      ),
+      color: Colors.white,
     );
   }
 }
