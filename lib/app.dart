@@ -14,7 +14,10 @@ class App extends StatefulWidget {
 
 class AppState extends State<App> {
   late ThemeSwitcher themeSwitcher;
-  late final routes;
+  late final routes = {
+    HomeScreen.routeName: (context) => HomeScreen(),
+    NewEntryScreen.routeName: (context) => NewEntryScreen(),
+  };
 
   void toggleTheme() {
     setState(() {
@@ -26,14 +29,6 @@ class AppState extends State<App> {
   void initState() {
     super.initState();
     themeSwitcher = ThemeSwitcher(curTheme: theme.light);
-    routes = {
-      HomeScreen.routeName: (context) => HomeScreen(
-            toggleTheme: toggleTheme,
-          ),
-      NewEntryScreen.routeName: (context) => NewEntryScreen(
-            toggleTheme: toggleTheme,
-          ),
-    };
   }
 
   @override

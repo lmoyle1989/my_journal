@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_journal/app.dart';
 
 class SettingsScreen extends StatelessWidget {
-  SettingsScreen({Key? key, required this.toggleTheme}) : super(key: key);
+  SettingsScreen({Key? key}) : super(key: key);
 
-  final void Function() toggleTheme;
   void Function() testToggle = () {};
 
   @override
@@ -18,7 +17,7 @@ class SettingsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(50.0),
         child: ElevatedButton(
           onPressed: testToggle,
-          child: Text("Test"),
+          child: const Text("Test"),
         ),
       ),
       color: Colors.white,
