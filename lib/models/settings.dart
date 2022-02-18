@@ -1,18 +1,13 @@
 class Settings {
-  theme currentTheme;
+  bool darkMode;
 
-  Settings({required this.currentTheme});
+  Settings({required this.darkMode});
 
-  void toggleTheme() {
-    if (currentTheme == theme.dark) {
-      currentTheme = theme.light;
+  void toggleThemeValue() {
+    if (darkMode) {
+      darkMode = false;
     } else {
-      currentTheme = theme.dark;
+      darkMode = true;
     }
   }
-}
-
-enum theme {
-  dark,
-  light,
 }
