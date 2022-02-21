@@ -5,5 +5,5 @@ class EntryData {
   int? rating;
   DateTime? date;
 
-  EntryData({this.title, this.date});
+  EntryData({this.id, this.title, this.body, this.rating, this.date});
 }
