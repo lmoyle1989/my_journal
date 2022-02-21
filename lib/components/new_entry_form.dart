@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/models/entry_data.dart';
+import 'package:sqflite/sqflite.dart';
 
 class NewEntryForm extends StatefulWidget {
   const NewEntryForm({Key? key}) : super(key: key);
@@ -66,8 +67,11 @@ class _NewEntryFormState extends State<NewEntryForm> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
+                  String schema = await DefaultAssetBundle.of(context)
+                      .loadString('assets/schema_1.txt');
                   formKey.currentState?.save();
+
                   Navigator.of(context).pop();
                 },
                 child: const Text("Save"),
