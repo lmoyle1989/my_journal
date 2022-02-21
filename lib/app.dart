@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:my_journal/screens/new_entry_screen.dart';
 import 'package:my_journal/screens/home_screen.dart';
 import 'models/settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class App extends StatefulWidget {
-  App({Key? key, required this.title}) : super(key: key);
+  App({
+    Key? key,
+    required this.title,
+    required this.preferences,
+  }) : super(key: key);
 
+  final SharedPreferences preferences;
   final String title;
   final routes = {
     HomeScreen.routeName: (context) => const HomeScreen(),
@@ -22,12 +28,14 @@ class AppState extends State<App> {
   @override
   void initState() {
     super.initState();
-    settings = Settings(darkMode: false);
+    settings =
+        Settings(darkMode: widget.preferences.getBool('darkMode') ?? false);
   }
 
   void toggleTheme() {
     setState(() {
       settings.toggleThemeValue();
+      widget.preferences.setBool('darkMode', settings.darkMode);
     });
   }
 
