@@ -68,10 +68,33 @@ class _NewEntryFormState extends State<NewEntryForm> {
             children: [
               ElevatedButton(
                 onPressed: () async {
+                  formKey.currentState?.save();
+                  entryData.date = DateTime.now();
                   String schema = await DefaultAssetBundle.of(context)
                       .loadString('assets/schema_1.txt');
-                  formKey.currentState?.save();
+                  await deleteDatabase('journal.sqlite3.db'); //REMOVE ME LATER
 
+                  final Database database = await openDatabase(
+                    'journal.sqlite3.db',
+                    version: 1,
+                    onCreate: (Database db, int version) async {
+                      await db.execute(schema);
+                    },
+                  );
+
+                  await database.transaction((txn) async {
+                    await txn.rawInsert(
+                      'INSERT INTO journal_entries(title, body, rating, date) VALUES(?, ?, ?, ?);',
+                      [
+                        entryData.title,
+                        entryData.body,
+                        entryData.rating,
+                        entryData.date.toString()
+                      ],
+                    );
+                  });
+
+                  await database.close();
                   Navigator.of(context).pop();
                 },
                 child: const Text("Save"),

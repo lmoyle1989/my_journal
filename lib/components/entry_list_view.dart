@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/components/list_entry.dart';
+import 'package:my_journal/models/entry_data.dart';
 
 class EntryListView extends StatelessWidget {
   EntryListView({
