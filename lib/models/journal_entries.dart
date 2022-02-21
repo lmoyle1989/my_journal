@@ -1,7 +1,7 @@
 import 'entry_data.dart';
 
 class JournalEntries {
-  List<EntryData>? entries;
+  List<EntryData> entries;
 
-  JournalEntries({this.entries});
+  JournalEntries({required this.entries});
 }

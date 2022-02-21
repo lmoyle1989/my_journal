@@ -3,7 +3,7 @@ class Settings {
 
   Settings({required this.darkMode});
 
-  void toggleThemeValue() {
+  void toggleDarkMode() {
     if (darkMode) {
       darkMode = false;
     } else {

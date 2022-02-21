@@ -34,7 +34,7 @@ class AppState extends State<App> {
 
   void toggleTheme() {
     setState(() {
-      settings.toggleThemeValue();
+      settings.toggleDarkMode();
       widget.preferences.setBool('darkMode', settings.darkMode);
     });
   }

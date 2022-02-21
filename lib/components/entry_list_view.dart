@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_journal/components/list_entry.dart';
 import 'package:my_journal/models/entry_data.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:my_journal/models/journal_entries.dart';
 
 class EntryListView extends StatefulWidget {
   EntryListView({
@@ -13,7 +14,7 @@ class EntryListView extends StatefulWidget {
 }
 
 class _EntryListViewState extends State<EntryListView> {
-  late List<EntryData> journalItems = [];
+  late JournalEntries journalEntries = JournalEntries(entries: []);
 
   @override
   void initState() {
@@ -46,22 +47,22 @@ class _EntryListViewState extends State<EntryListView> {
     }).toList();
 
     setState(() {
-      journalItems = entryDataObjects;
+      journalEntries = JournalEntries(entries: entryDataObjects);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (journalItems.isEmpty) {
+    if (journalEntries.entries.isEmpty) {
       return const Center(
         child: CircularProgressIndicator(),
       );
     } else {
       return ListView.builder(
-        itemCount: journalItems.length,
+        itemCount: journalEntries.entries.length,
         itemBuilder: (context, index) {
           return ListEntry(
-            entryData: journalItems[index],
+            entryData: journalEntries.entries[index],
           );
         },
       );
