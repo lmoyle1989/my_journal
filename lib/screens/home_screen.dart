@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/components/journal_scaffold.dart';
-import 'package:my_journal/components/entry_list_view_stateless.dart';
+import 'package:my_journal/components/entry_list_view.dart';
 import 'package:my_journal/models/journal_entries.dart';
 import 'package:my_journal/models/journal_entry.dart';
 import 'package:sqflite/sqflite.dart';
@@ -59,10 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return JournalScaffold(
       title: "List of Journal Entries",
       actionButton: newEntryButton(context),
-      body: EntryListViewStateless(
+      body: EntryListView(
         journalEntries: journalEntries,
       ),
-      horizontalBody: const MasterDetailView(),
+      horizontalBody: MasterDetailView(
+        journalEntries: journalEntries,
+      ),
     );
   }
 

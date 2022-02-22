@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'entry_detail_view.dart';
-import 'entry_list_view_stateless.dart';
+import 'package:my_journal/models/journal_entries.dart';
+import 'entry_list_view.dart';
 
 class MasterDetailView extends StatelessWidget {
-  const MasterDetailView({Key? key}) : super(key: key);
+  const MasterDetailView({Key? key, this.journalEntries}) : super(key: key);
+
+  final JournalEntries? journalEntries;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          Expanded(child: EntryListViewStateless()),
-          Expanded(child: EntryDetailView()),
-        ],
-      ),
+    return Row(
+      children: [
+        Expanded(
+            child: EntryListView(
+          journalEntries: journalEntries,
+        )),
+        const Expanded(child: EntryDetailView()),
+      ],
     );
   }
 }

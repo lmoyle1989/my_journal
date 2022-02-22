@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_journal/components/list_entry.dart';
 import 'package:my_journal/models/journal_entries.dart';
 
-class EntryListViewStateless extends StatelessWidget {
-  const EntryListViewStateless({
+class EntryListView extends StatelessWidget {
+  const EntryListView({
     Key? key,
     this.journalEntries,
   }) : super(key: key);
