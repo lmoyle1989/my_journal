@@ -1,7 +1,7 @@
-import 'entry_data.dart';
+import 'journal_entry.dart';
 
 class JournalEntries {
-  List<EntryData> entries;
+  List<JournalEntry> entries;
 
   JournalEntries({required this.entries});
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_journal/models/entry_data.dart';
+import 'package:my_journal/models/journal_entry.dart';
 
 class ListEntry extends StatelessWidget {
   const ListEntry({
@@ -7,7 +7,7 @@ class ListEntry extends StatelessWidget {
     required this.entryData,
   }) : super(key: key);
 
-  final EntryData entryData;
+  final JournalEntry entryData;
   //final String? title;
   //final String? subtitle;
 

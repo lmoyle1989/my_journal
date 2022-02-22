@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/components/list_entry.dart';
-import 'package:my_journal/models/entry_data.dart';
+import 'package:my_journal/models/journal_entry.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:my_journal/models/journal_entries.dart';
 
@@ -10,10 +10,10 @@ class EntryListView extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<EntryListView> createState() => _EntryListViewState();
+  State<EntryListView> createState() => EntryListViewState();
 }
 
-class _EntryListViewState extends State<EntryListView> {
+class EntryListViewState extends State<EntryListView> {
   late JournalEntries journalEntries = JournalEntries(entries: []);
 
   @override
@@ -38,7 +38,7 @@ class _EntryListViewState extends State<EntryListView> {
         await database.rawQuery('SELECT * FROM journal_entries');
 
     final entryDataObjects = journalRecords.map((record) {
-      return EntryData(
+      return JournalEntry(
           id: record['id'],
           title: record['title'],
           body: record['body'],

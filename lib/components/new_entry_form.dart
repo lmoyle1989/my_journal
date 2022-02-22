@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_journal/models/entry_data.dart';
+import 'package:my_journal/models/journal_entry.dart';
 import 'package:sqflite/sqflite.dart';
 
 class NewEntryForm extends StatefulWidget {
@@ -12,7 +12,7 @@ class NewEntryForm extends StatefulWidget {
 class _NewEntryFormState extends State<NewEntryForm> {
   final formKey = GlobalKey<FormState>();
   final List<int> ratingOptions = [1, 2, 3, 4];
-  EntryData entryData = EntryData();
+  JournalEntry entryData = JournalEntry();
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,6 @@ class _NewEntryFormState extends State<NewEntryForm> {
                   entryData.date = DateTime.now();
                   String schema = await DefaultAssetBundle.of(context)
                       .loadString('assets/schema_1.txt');
-                  await deleteDatabase('journal.sqlite3.db'); //REMOVE ME LATER
 
                   final Database database = await openDatabase(
                     'journal.sqlite3.db',

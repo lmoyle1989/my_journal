@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return JournalScaffold(
-      title: "List of Journal Entriesss",
+      title: "List of Journal Entries",
       actionButton: newEntryButton(context),
       body: EntryListView(),
       horizontalBody: const MasterDetailView(),
