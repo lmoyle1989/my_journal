@@ -13,11 +13,12 @@ class HomeScreen extends StatefulWidget {
   static const String routeName = '/';
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   late JournalEntries journalEntries = JournalEntries(entries: []);
+  late JournalEntry? selectedEntry = journalEntries.entries[0];
 
   @override
   void initState() {
@@ -54,6 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void updateSelectedEntry(JournalEntry selected) {
+    setState(() {
+      selectedEntry = selected;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return JournalScaffold(
@@ -64,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       horizontalBody: MasterDetailView(
         journalEntries: journalEntries,
+        detailEntry: selectedEntry,
       ),
     );
   }
