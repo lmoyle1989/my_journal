@@ -30,6 +30,13 @@ class _NewEntryFormState extends State<NewEntryForm> {
             onSaved: (value) {
               entryData.title = value;
             },
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please Enter a Title';
+              } else {
+                return null;
+              }
+            },
           ),
           TextFormField(
             autofocus: true,
@@ -39,6 +46,13 @@ class _NewEntryFormState extends State<NewEntryForm> {
             ),
             onSaved: (value) {
               entryData.body = value;
+            },
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please Enter Body Text';
+              } else {
+                return null;
+              }
             },
           ),
           DropdownButtonFormField<int>(
@@ -62,39 +76,48 @@ class _NewEntryFormState extends State<NewEntryForm> {
             onSaved: (value) {
               entryData.rating = value;
             },
+            validator: (value) {
+              if (value == null) {
+                return "Please Select Rating";
+              } else {
+                return null;
+              }
+            },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                 onPressed: () async {
-                  formKey.currentState?.save();
-                  entryData.date = DateTime.now();
-                  String schema = await DefaultAssetBundle.of(context)
-                      .loadString('assets/schema_1.txt');
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState?.save();
+                    entryData.date = DateTime.now();
+                    String schema = await DefaultAssetBundle.of(context)
+                        .loadString('assets/schema_1.txt');
 
-                  final Database database = await openDatabase(
-                    'journal.sqlite3.db',
-                    version: 1,
-                    onCreate: (Database db, int version) async {
-                      await db.execute(schema);
-                    },
-                  );
-
-                  await database.transaction((txn) async {
-                    await txn.rawInsert(
-                      'INSERT INTO journal_entries(title, body, rating, date) VALUES(?, ?, ?, ?);',
-                      [
-                        entryData.title,
-                        entryData.body,
-                        entryData.rating,
-                        entryData.date.toString()
-                      ],
+                    final Database database = await openDatabase(
+                      'journal.sqlite3.db',
+                      version: 1,
+                      onCreate: (Database db, int version) async {
+                        await db.execute(schema);
+                      },
                     );
-                  });
 
-                  await database.close();
-                  Navigator.of(context).pop();
+                    await database.transaction((txn) async {
+                      await txn.rawInsert(
+                        'INSERT INTO journal_entries(title, body, rating, date) VALUES(?, ?, ?, ?);',
+                        [
+                          entryData.title,
+                          entryData.body,
+                          entryData.rating,
+                          entryData.date.toString()
+                        ],
+                      );
+                    });
+
+                    await database.close();
+                    Navigator.of(context).pop();
+                  }
                 },
                 child: const Text("Save"),
               ),
