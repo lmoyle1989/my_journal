@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/models/journal_entry.dart';
-import 'entry_detail_view.dart';
 import 'package:my_journal/models/journal_entries.dart';
+import 'entry_detail_view.dart';
 import 'entry_list_view.dart';
 
 class MasterDetailView extends StatelessWidget {
@@ -24,8 +24,11 @@ class MasterDetailView extends StatelessWidget {
           horizontal: true,
         )),
         Expanded(
-          child: EntryDetailView(
-            journalEntry: detailEntry,
+          child: Container(
+            decoration: BoxDecoration(border: Border.all()),
+            child: EntryDetailView(
+              journalEntry: detailEntry,
+            ),
           ),
         ),
       ],

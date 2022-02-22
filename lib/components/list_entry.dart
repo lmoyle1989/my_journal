@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_journal/models/journal_entry.dart';
 import 'package:my_journal/screens/entry_detail_screen.dart';
 import 'package:my_journal/screens/home_screen.dart';
+import 'package:intl/intl.dart';
 
 class ListEntry extends StatelessWidget {
   const ListEntry({
@@ -44,9 +45,10 @@ class ListEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(Icons.access_alarm),
+      leading: const Icon(Icons.note_outlined),
       title: Text(entryData.title ?? ""),
-      subtitle: Text(entryData.date.toString()),
+      subtitle:
+          Text((DateFormat('yyyy-MM-dd').format(entryData.date as DateTime))),
       onTap: selectedOnTapFunction(context),
     );
   }

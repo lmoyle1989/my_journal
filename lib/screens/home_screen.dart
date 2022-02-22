@@ -89,7 +89,7 @@ class HomeScreenState extends State<HomeScreen> {
       onPressed: () {
         pushNewEntryScreen(context);
       },
-      child: const Text("+"),
+      child: const Icon(Icons.note_add_outlined),
     );
   }
 }
