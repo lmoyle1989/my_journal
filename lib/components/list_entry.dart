@@ -7,9 +7,11 @@ class ListEntry extends StatelessWidget {
   const ListEntry({
     Key? key,
     required this.entryData,
+    required this.horizontal,
   }) : super(key: key);
 
   final JournalEntry entryData;
+  final bool horizontal;
 
   void pushDetailViewScreen(BuildContext context) {
     Navigator.of(context).push(
@@ -27,15 +29,25 @@ class ListEntry extends StatelessWidget {
     homeScreenState?.updateSelectedEntry(entryData);
   }
 
+  Function() selectedOnTapFunction(BuildContext context) {
+    if (horizontal) {
+      return () {
+        changeDetailView(context);
+      };
+    } else {
+      return () {
+        pushDetailViewScreen(context);
+      };
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: const Icon(Icons.access_alarm),
       title: Text(entryData.title ?? ""),
       subtitle: Text(entryData.date.toString()),
-      onTap: () {
-        pushDetailViewScreen(context);
-      },
+      onTap: selectedOnTapFunction(context),
     );
   }
 }

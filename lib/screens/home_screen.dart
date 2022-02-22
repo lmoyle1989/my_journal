@@ -68,6 +68,7 @@ class HomeScreenState extends State<HomeScreen> {
       actionButton: newEntryButton(context),
       body: EntryListView(
         journalEntries: journalEntries,
+        horizontal: false,
       ),
       horizontalBody: MasterDetailView(
         journalEntries: journalEntries,

@@ -21,6 +21,7 @@ class MasterDetailView extends StatelessWidget {
         Expanded(
             child: EntryListView(
           journalEntries: journalEntries,
+          horizontal: true,
         )),
         Expanded(
           child: EntryDetailView(

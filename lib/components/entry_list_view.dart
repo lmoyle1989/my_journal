@@ -6,9 +6,11 @@ class EntryListView extends StatelessWidget {
   const EntryListView({
     Key? key,
     this.journalEntries,
+    required this.horizontal,
   }) : super(key: key);
 
   final JournalEntries? journalEntries;
+  final bool horizontal;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class EntryListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListEntry(
             entryData: journalEntries!.entries[index],
+            horizontal: horizontal,
           );
         },
       );

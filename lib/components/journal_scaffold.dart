@@ -38,7 +38,11 @@ class JournalScaffold extends StatelessWidget {
       floatingActionButton: actionButton,
       body: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth >= 600) {
-          return horizontalBody ?? body;
+          if (horizontalBody != null) {
+            return horizontalBody ?? body;
+          } else {
+            return body;
+          }
         } else {
           return body;
         }

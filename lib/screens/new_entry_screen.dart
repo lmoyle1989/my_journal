@@ -9,7 +9,7 @@ class NewEntryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const JournalScaffold(
+    return JournalScaffold(
       title: "New Entry",
       actionButton: null,
       body: SingleChildScrollView(
