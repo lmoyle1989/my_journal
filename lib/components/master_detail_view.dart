@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'entry_detail_view.dart';
-import 'entry_list_view.dart';
+import 'entry_list_view_stateless.dart';
 
 class MasterDetailView extends StatelessWidget {
   const MasterDetailView({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class MasterDetailView extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          Expanded(child: EntryListView()),
+          Expanded(child: EntryListViewStateless()),
           Expanded(child: EntryDetailView()),
         ],
       ),

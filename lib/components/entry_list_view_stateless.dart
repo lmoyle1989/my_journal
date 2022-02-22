@@ -12,7 +12,7 @@ class EntryListViewStateless extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (journalEntries == null) {
+    if (journalEntries!.entries.isEmpty) {
       return const Center(
         child: CircularProgressIndicator(),
       );
