@@ -24,7 +24,7 @@ class EntryDetailView extends StatelessWidget {
         ),
       );
     } else {
-      return const Text("HELLO THERE");
+      return const Center(child: Icon(Icons.account_circle));
     }
   }
 }

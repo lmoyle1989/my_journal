@@ -18,7 +18,8 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   late JournalEntries journalEntries = JournalEntries(entries: []);
-  late JournalEntry? selectedEntry = journalEntries.entries[0];
+  // ignore: avoid_init_to_null
+  late JournalEntry? selectedEntry = null;
 
   @override
   void initState() {
