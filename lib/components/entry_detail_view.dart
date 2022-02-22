@@ -12,12 +12,17 @@ class EntryDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (journalEntry != null) {
-      return Column(children: [
-        Text('${journalEntry!.title}'),
-        Text('${journalEntry!.body}'),
-        Text('${journalEntry!.rating}'),
-        Text('${journalEntry!.date}'),
-      ]);
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text('${journalEntry!.title}'),
+            Text('${journalEntry!.body}'),
+            Text('${journalEntry!.rating}'),
+            Text('${journalEntry!.date}'),
+          ],
+        ),
+      );
     } else {
       return const Text("HELLO THERE");
     }

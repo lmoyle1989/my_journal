@@ -12,7 +12,9 @@ class NewEntryScreen extends StatelessWidget {
     return const JournalScaffold(
       title: "New Entry",
       actionButton: null,
-      body: SingleChildScrollView(child: NewEntryForm()),
+      body: SingleChildScrollView(
+        child: NewEntryForm(),
+      ),
     );
   }
 }
