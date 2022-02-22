@@ -4,11 +4,16 @@ import 'package:my_journal/components/journal_scaffold.dart';
 import '../components/master_detail_view.dart';
 import 'new_entry_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   static const String routeName = '/';
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return JournalScaffold(
