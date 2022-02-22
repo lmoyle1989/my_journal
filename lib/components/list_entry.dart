@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/models/journal_entry.dart';
+import 'package:my_journal/screens/entry_detail_screen.dart';
 
 class ListEntry extends StatelessWidget {
   const ListEntry({
@@ -8,8 +9,16 @@ class ListEntry extends StatelessWidget {
   }) : super(key: key);
 
   final JournalEntry entryData;
-  //final String? title;
-  //final String? subtitle;
+
+  void pushDetailView(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => EntryDetailScreen(
+          journalEntry: entryData,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +26,9 @@ class ListEntry extends StatelessWidget {
       leading: const Icon(Icons.access_alarm),
       title: Text(entryData.title ?? ""),
       subtitle: Text(entryData.date.toString()),
+      onTap: () {
+        pushDetailView(context);
+      },
     );
   }
 }

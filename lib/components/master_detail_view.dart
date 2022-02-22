@@ -11,7 +11,7 @@ class MasterDetailView extends StatelessWidget {
       child: Row(
         children: [
           Expanded(child: EntryListView()),
-          const Expanded(child: EntryDetailView()),
+          Expanded(child: EntryDetailView()),
         ],
       ),
     );
