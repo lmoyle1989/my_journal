@@ -7,3 +7,9 @@ class JournalEntry {
 
   JournalEntry({this.id, this.title, this.body, this.rating, this.date});
 }
+
+class JournalEntries {
+  List<JournalEntry> entries;
+
+  JournalEntries({required this.entries});
+}
