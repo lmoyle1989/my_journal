@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_journal/models/journal_entry.dart';
+import 'package:my_journal/models/journal.dart';
 import 'package:my_journal/screens/entry_detail_screen.dart';
 import 'package:my_journal/screens/home_screen.dart';
 import 'package:intl/intl.dart';

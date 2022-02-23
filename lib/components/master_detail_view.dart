@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_journal/models/journal_entry.dart';
-import 'package:my_journal/models/journal_entries.dart';
+import 'package:my_journal/models/journal.dart';
 import 'entry_detail_view.dart';
 import 'entry_list_view.dart';
 

@@ -8,9 +8,24 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppState? appState = context.findAncestorStateOfType<AppState>();
-    return SettingsSwitchTile(
-      settings: appState!.settings,
-      onChangedFunction: appState.toggleTheme,
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 60,
+      ),
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text("Settings"),
+        ),
+        body: Column(
+          children: [
+            SettingsSwitchTile(
+              settings: appState!.settings,
+              onChangedFunction: appState.toggleTheme,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

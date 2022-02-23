@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/components/journal_scaffold.dart';
 import 'package:my_journal/components/entry_list_view.dart';
-import 'package:my_journal/models/journal_entries.dart';
-import 'package:my_journal/models/journal_entry.dart';
+import 'package:my_journal/models/journal.dart';
 import 'package:sqflite/sqflite.dart';
 import '../components/master_detail_view.dart';
 import 'new_entry_screen.dart';

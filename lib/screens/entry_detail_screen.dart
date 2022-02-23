@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_journal/components/entry_detail_view.dart';
 import 'package:my_journal/components/journal_scaffold.dart';
-import 'package:my_journal/models/journal_entry.dart';
+import 'package:my_journal/models/journal.dart';
 
 class EntryDetailScreen extends StatelessWidget {
   const EntryDetailScreen({Key? key, this.journalEntry}) : super(key: key);
