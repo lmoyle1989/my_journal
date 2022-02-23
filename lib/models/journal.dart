@@ -8,8 +8,8 @@ class JournalEntry {
   JournalEntry({this.id, this.title, this.body, this.rating, this.date});
 }
 
-class JournalEntries {
+class Journal {
   List<JournalEntry> entries;
 
-  JournalEntries({required this.entries});
+  Journal({required this.entries});
 }

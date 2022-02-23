@@ -10,7 +10,7 @@ class MasterDetailView extends StatelessWidget {
     this.detailEntry,
   }) : super(key: key);
 
-  final JournalEntries? journalEntries;
+  final Journal? journalEntries;
   final JournalEntry? detailEntry;
 
   @override
@@ -24,7 +24,11 @@ class MasterDetailView extends StatelessWidget {
         )),
         Expanded(
           child: Container(
-            decoration: BoxDecoration(border: Border.all()),
+            decoration: BoxDecoration(
+                border: Border.all(
+              width: 5,
+              color: Colors.blue,
+            )),
             child: EntryDetailView(
               journalEntry: detailEntry,
             ),

@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  late JournalEntries journalEntries = JournalEntries(entries: []);
+  late Journal journalEntries = Journal(entries: []);
   // ignore: avoid_init_to_null
   late JournalEntry? selectedEntry = null;
 
@@ -51,7 +51,7 @@ class HomeScreenState extends State<HomeScreen> {
     }).toList();
 
     setState(() {
-      journalEntries = JournalEntries(entries: entryDataObjects);
+      journalEntries = Journal(entries: entryDataObjects);
     });
   }
 

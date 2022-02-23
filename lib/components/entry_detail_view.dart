@@ -52,7 +52,11 @@ class EntryDetailView extends StatelessWidget {
         ),
       );
     } else {
-      return const Center(child: Icon(Icons.account_circle));
+      return const Center(
+          child: Icon(
+        Icons.insert_emoticon_outlined,
+        size: 100,
+      ));
     }
   }
 }

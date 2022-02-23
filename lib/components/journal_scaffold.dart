@@ -17,36 +17,42 @@ class JournalScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        centerTitle: true,
-        leading: (ModalRoute.of(context)?.canPop ?? false)
-            ? const BackButton()
-            : null,
-        actions: [
-          Builder(builder: (context) {
-            return IconButton(
-                icon: const Icon(Icons.settings),
-                onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
-                });
-          }),
-        ],
-      ),
-      endDrawer: const SettingsScreen(),
-      floatingActionButton: actionButton,
-      body: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth >= 600) {
-          if (horizontalBody != null) {
-            return horizontalBody ?? body;
+    return SafeArea(
+      minimum: const EdgeInsets.only(top: 50),
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(50),
+          child: AppBar(
+            title: Text(title),
+            centerTitle: true,
+            leading: (ModalRoute.of(context)?.canPop ?? false)
+                ? const BackButton()
+                : null,
+            actions: [
+              Builder(builder: (context) {
+                return IconButton(
+                    icon: const Icon(Icons.settings),
+                    onPressed: () {
+                      Scaffold.of(context).openEndDrawer();
+                    });
+              }),
+            ],
+          ),
+        ),
+        endDrawer: const SettingsScreen(),
+        floatingActionButton: actionButton,
+        body: LayoutBuilder(builder: (context, constraints) {
+          if (constraints.maxWidth >= 600) {
+            if (horizontalBody != null) {
+              return horizontalBody ?? body;
+            } else {
+              return body;
+            }
           } else {
             return body;
           }
-        } else {
-          return body;
-        }
-      }),
+        }),
+      ),
     );
   }
 }

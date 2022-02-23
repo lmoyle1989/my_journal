@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_journal/components/list_entry.dart';
+import 'package:my_journal/components/list_entry_tile.dart';
 import 'package:my_journal/models/journal.dart';
 
 class EntryListView extends StatelessWidget {
@@ -9,14 +9,17 @@ class EntryListView extends StatelessWidget {
     required this.horizontal,
   }) : super(key: key);
 
-  final JournalEntries? journalEntries;
+  final Journal? journalEntries;
   final bool horizontal;
 
   @override
   Widget build(BuildContext context) {
     if (journalEntries!.entries.isEmpty) {
       return const Center(
-        child: CircularProgressIndicator(),
+        child: Icon(
+          Icons.note_alt_outlined,
+          size: 200,
+        ),
       );
     } else {
       return ListView.builder(

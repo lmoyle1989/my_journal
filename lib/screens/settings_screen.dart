@@ -13,9 +13,12 @@ class SettingsScreen extends StatelessWidget {
         left: 60,
       ),
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text("Settings"),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(50),
+          child: AppBar(
+            automaticallyImplyLeading: false,
+            title: const Text("Settings"),
+          ),
         ),
         body: Column(
           children: [
