@@ -15,10 +15,16 @@ class EntryListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (journalEntries!.entries.isEmpty) {
-      return const Center(
-        child: Icon(
-          Icons.note_alt_outlined,
-          size: 200,
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              Icons.note_alt_outlined,
+              size: 200,
+            ),
+            Text("MY JOURNAL"),
+          ],
         ),
       );
     } else {
