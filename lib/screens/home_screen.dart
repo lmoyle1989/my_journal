@@ -26,6 +26,22 @@ class HomeScreenState extends State<HomeScreen> {
     loadJournal();
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return JournalScaffold(
+      title: "List of Journal Entries",
+      actionButton: newEntryButton(context),
+      body: EntryListView(
+        journalEntries: journalEntries,
+        horizontal: false,
+      ),
+      horizontalBody: MasterDetailView(
+        journalEntries: journalEntries,
+        detailEntry: selectedEntry,
+      ),
+    );
+  }
+
   void loadJournal() async {
     String schema =
         await DefaultAssetBundle.of(context).loadString('assets/schema_1.txt');
@@ -59,22 +75,6 @@ class HomeScreenState extends State<HomeScreen> {
     setState(() {
       selectedEntry = selected;
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return JournalScaffold(
-      title: "List of Journal Entries",
-      actionButton: newEntryButton(context),
-      body: EntryListView(
-        journalEntries: journalEntries,
-        horizontal: false,
-      ),
-      horizontalBody: MasterDetailView(
-        journalEntries: journalEntries,
-        detailEntry: selectedEntry,
-      ),
-    );
   }
 
   void pushNewEntryScreen(BuildContext context) {
