@@ -13,6 +13,14 @@ class MasterDetailView extends StatelessWidget {
   final Journal? journalEntries;
   final JournalEntry? detailEntry;
 
+  JournalEntry? getFirstEntry() {
+    if (detailEntry == null && journalEntries!.entries.isNotEmpty) {
+      return journalEntries!.entries[0];
+    } else {
+      return detailEntry;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -30,7 +38,7 @@ class MasterDetailView extends StatelessWidget {
               color: Colors.blue,
             )),
             child: EntryDetailView(
-              journalEntry: detailEntry,
+              journalEntry: getFirstEntry(),
             ),
           ),
         ),
